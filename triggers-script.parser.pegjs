@@ -5,8 +5,20 @@ Sentence = On_event_sentence
 On_event_sentence = 
  token1:(_* "on event" _*)
  event:Jsblock
+ name:Subsentence_as
+ priority:Subsentence_priority?
  then:Subsentence_then
-  { return `triggers.register(${event}, (event) => { ${then} });` }
+  { return `triggers.register(${event}, ${name}, (event) => { ${then} }, { ${ priority ? "priority: " + priority : "" } });` }
+
+Subsentence_as =
+ token1:(_* "as" _*)
+ that:(Jsblock)
+  { return that }
+
+Subsentence_priority =
+ token1:(_* "priority" _*)
+ that:(Jsblock)
+  { return that }
 
 Subsentence_then = 
  token1:(_* "then" _*)

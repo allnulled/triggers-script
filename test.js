@@ -4,7 +4,7 @@ describe("TriggersScript Parser API Test", function() {
   
   it("can parse a simple event", async function() {
     TriggersScriptParser.parse(`
-      on event {{ "wherever" }} then {
+      on event {{ "wherever" }} as {{ "TR001" }} then {
         break process {{ p1 }}
       }
     `);
@@ -14,7 +14,7 @@ describe("TriggersScript Parser API Test", function() {
     const js = TriggersScriptParser.parse(`
      // Comentarios válidos como en JavaScript
      // On event:
-     on event {{ "wherever" }} then {
+     on event {{ "wherever" }} as {{ "TR001" }} priority {{ 100 }} then {
       // Try-catch-finally:
       try {
        // Always:

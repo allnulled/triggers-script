@@ -1,4 +1,4 @@
-triggers.register("wherever", (event) => {
+triggers.register("wherever", "TR001", (event) => {
     try {
         Events.by.model[event.model]("stage 1", 200, "ok")
         return 500;
@@ -23,4 +23,6 @@ triggers.register("wherever", (event) => {
     } catch (error) {
         ;
     }
+}, {
+    priority: 100
 });
