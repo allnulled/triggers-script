@@ -1,0 +1,13 @@
+{
+  "name": "triggers-script",
+  "version": "1.0.0",
+  "description": "Top-level language to define events and main events behaviour.",
+  "main": "triggers-script.js",
+  "scripts": {
+    "build": "npx pegjs --format globals --export-var TriggersScriptParser triggers-script.parser.pegjs && node fix.js",
+    "test": "npm run build && npx mocha test.js && npx js-beautify -f test-output.js -o test-output.js"
+  },
+  "keywords": [],
+  "author": "allnulled",
+  "license": "WTFPL"
+}
